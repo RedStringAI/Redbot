@@ -168,10 +168,10 @@ def _console_html() -> str:
       </section>
       <section class="card">
         <h2>常用命令</h2>
-        <p><code>/remember style=输出要适合抖音</code></p>
+        <p><code>/remember style=输出要简洁、技术口径清晰</code></p>
         <p><code>/kb add 标题\n内容</code></p>
         <p><code>/kb search 关键词</code></p>
-        <p><code>/run short-video-script 主题</code></p>
+        <p><code>/run research-brief 主题</code></p>
       </section>
     </div>
     <h2>返回结果</h2>

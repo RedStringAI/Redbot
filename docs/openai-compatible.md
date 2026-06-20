@@ -28,7 +28,7 @@ Example:
 redbot run research-brief \
   --topic "AI Agent 开源项目趋势" \
   --audience "科技博主" \
-  --context "关注 GitHub 二创机会和短视频传播点"
+  --context "总结实际落地风险和下一步动作"
 ```
 
 Use `--demo` when you want to test Redbot without any API key:
@@ -36,7 +36,7 @@ Use `--demo` when you want to test Redbot without any API key:
 ```bash
 redbot run short-video-script \
   --topic "Claude vs GPT" \
-  --audience "抖音科技爱好者" \
-  --context "做一个 60 秒对比演示" \
+  --audience "工程团队" \
+  --context "比较模型在内部工具中的适用场景" \
   --demo
 ```

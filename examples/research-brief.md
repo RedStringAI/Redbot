@@ -3,8 +3,8 @@
 ```bash
 redbot run research-brief \
   --topic "开源 AI Agent 工具趋势" \
-  --audience "准备做抖音科技号的人" \
-  --context "关注 GitHub 开源、二创空间、短视频传播点。" \
+  --audience "工程团队" \
+  --context "关注 GitHub 开源项目、落地风险和下一步行动。" \
   --demo
 ```
 

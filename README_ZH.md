@@ -2,7 +2,7 @@
 
 # Redbot
 
-### 面向创作者、运营和小团队的本地优先 AI 执行助理
+### 面向可重复知识工作的本地优先 AI 执行助理
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
@@ -36,15 +36,15 @@ Redbot 不绑定任何一家模型服务，只要是 OpenAI-compatible endpoint 
 
 ## Redbot 是什么
 
-Redbot 是一个开源个人 AI 执行助理。它不是让你每次从空白聊天开始，而是把高频知识工作做成可复用模板：选题研究、短视频脚本、内容表格、周报、GitHub README 草稿。
+Redbot 是一个开源个人 AI 执行助理。它不是让你每次从空白聊天开始，而是把高频知识工作做成可复用模板：资料研究、沟通脚本、内容表格、周报、GitHub README 草稿。
 
-- **模板优先**：直接从真实创作者、办公、开发者场景开始。
+- **模板优先**：直接从真实研究、办公、开发者场景开始。
 - **兼容主流模型网关**：OpenAI、FluxToken、OpenRouter、自建中转站、本地模型服务都可以。
 - **可追踪执行**：每次运行都会保存最终产物和 JSON trace。
 - **本地客户端**：支持浏览器控制台和本地 HTTP 服务。
 - **飞书 / 企业微信 / 微信入口**：提供 webhook adapter，方便接入团队群和机器人桥。
 - **记忆和知识库**：SQLite 存储用户偏好，本地 `.md` / `.txt` 文件可导入检索。
-- **MIT 开源**：适合二创、教学、vibecoding 视频和社区 remix。
+- **MIT 开源**：便于审计、扩展、自托管和团队内部二次开发。
 
 ## 快速开始
 
@@ -53,7 +53,7 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -e .
 redbot templates
-redbot run short-video-script --topic "Claude vs GPT" --audience "抖音科技爱好者" --context "做一个 60 秒模型对比视频" --demo
+redbot run research-brief --topic "Claude vs GPT" --audience "工程团队" --context "比较模型在内部工具中的适用场景" --demo
 ```
 
 启动本地桌面式控制台：
@@ -95,7 +95,7 @@ $env:REDBOT_MODEL="gpt-4o-mini"
 运行：
 
 ```bash
-redbot run research-brief --topic "开源 AI Agent 趋势" --audience "科技博主" --context "关注 GitHub 二创机会"
+redbot run research-brief --topic "开源 AI Agent 趋势" --audience "工程团队" --context "总结实际落地风险和下一步动作"
 ```
 
 更多说明：[OpenAI-compatible setup](docs/openai-compatible.md) 和 [FluxToken setup](docs/fluxtoken.md)。
@@ -105,7 +105,7 @@ redbot run research-brief --topic "开源 AI Agent 趋势" --audience "科技博
 | 模板 | 输出 |
 |---|---|
 | `research-brief` | 选题研究、角度、风险和下一步动作 |
-| `short-video-script` | 抖音 / 小红书风格短视频脚本 |
+| `short-video-script` | 带清晰开头和结构的短沟通脚本 |
 | `content-table` | 把杂乱笔记整理成内容表格 |
 | `weekly-report` | 把进展记录整理成周报 |
 | `github-readme` | 为开源项目生成 README 草稿 |
@@ -120,8 +120,8 @@ redbot serve --demo --port 8765
 
 ```text
 /templates
-/run short-video-script Claude 和 GPT 模型对比
-/remember style=输出要适合抖音
+/run research-brief Claude 和 GPT 模型对比
+/remember style=输出要简洁、技术口径清晰
 /memory
 /kb add 飞书配置
 /kb search 飞书
@@ -156,7 +156,7 @@ redbot kb import ./docs --workspace redbot_workspace
 
 ## 路线图
 
-- 抖音、小红书、B 站、公众号创作者模板。
+- 更多资料研究、团队更新、客服知识、项目文档模板。
 - 更完整的 Web 控制台。
 - 内置网页研究工具。
 - PDF、DOCX、会议记录导入。
@@ -165,13 +165,13 @@ redbot kb import ./docs --workspace redbot_workspace
 
 ## 和 nanobot 的区别
 
-[nanobot](https://github.com/HKUDS/nanobot) 是更完整的个人 AI Agent 框架，覆盖 WebUI、渠道、工具、记忆、MCP、自动化和部署。Redbot 更像一个轻量、产品化、适合拍视频演示的执行助手：
+[nanobot](https://github.com/HKUDS/nanobot) 是更完整的个人 AI Agent 框架，覆盖 WebUI、渠道、工具、记忆、MCP、自动化和部署。Redbot 更像一个轻量、产品化、面向知识工作的执行助手：
 
 - 首次体验更窄、更容易讲清楚；
-- 更偏中文创作者和办公场景；
+- 更偏研究、文档和办公协作场景；
 - 本地产物和 trace 是主要产品表面；
 - OpenAI-compatible 配置足够简单；
-- 代码体量更适合二创和教程。
+- 代码体量更适合审计、扩展和自托管。
 
 ## 开发
 

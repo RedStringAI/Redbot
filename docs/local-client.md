@@ -47,8 +47,8 @@ curl -X POST http://127.0.0.1:8765/api/chat \
 
 ```text
 /templates
-/run short-video-script Claude 和 GPT 模型对比
-/remember style=输出要适合抖音
+/run research-brief Claude 和 GPT 模型对比
+/remember style=输出要简洁、技术口径清晰
 /memory
 /kb add 飞书配置
 飞书机器人需要事件订阅地址和回调 token。

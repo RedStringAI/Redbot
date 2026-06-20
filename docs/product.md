@@ -1,10 +1,10 @@
 # Redbot Product Plan
 
-Redbot is a focused personal AI execution assistant. The first release avoids a blank-chat experience and starts users from concrete deliverables that are easy to show in a short video and easy to reuse in daily work.
+Redbot is a focused personal AI execution assistant. The first release avoids a blank-chat experience and starts users from concrete deliverables that are easy to review, repeat, and reuse in daily work.
 
 ## Target Users
 
-- Creators who need research, scripts, and publishable material.
+- Individuals and teams who need research, scripts, and publishable material.
 - Operators who write weekly reports, summaries, and content tables.
 - Developers who want a tiny OpenAI-compatible agent template they can fork.
 
@@ -25,7 +25,7 @@ Compared with broad agent frameworks, Redbot is deliberately narrow:
 - templates are the product surface;
 - artifacts and traces are local, inspectable files;
 - OpenAI-compatible configuration works with official APIs, gateways, and local model servers;
-- the codebase is small enough for vibecoding tutorials and community remixing.
+- the codebase is small enough to inspect, extend, and self-host.
 
 Compared with closed AI writing tools, Redbot is:
 
@@ -42,4 +42,4 @@ Compared with closed AI writing tools, Redbot is:
 - Built-in web research tool.
 - File ingestion for PDF, DOCX, and meeting notes.
 - Scheduled recurring tasks.
-- Chinese creator platform presets for Douyin, Xiaohongshu, Bilibili, and WeChat Official Accounts.
+- Additional templates for research, team updates, support notes, and project documentation.

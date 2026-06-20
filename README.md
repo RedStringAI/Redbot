@@ -2,7 +2,7 @@
 
 # Redbot
 
-### A local-first AI execution assistant for creators, operators, and small teams
+### A local-first AI execution assistant for repeatable knowledge work
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
@@ -25,7 +25,7 @@ English | [中文](README_ZH.md) | [日本語](README_JA.md) | [Deutsch](README_
 <tr>
 <td width="180"><strong>FluxToken</strong><br><a href="https://fluxtoken.ai">fluxtoken.ai</a></td>
 <td>
-Redbot works with any OpenAI-compatible endpoint. If you want a ready-to-use model gateway for demos, creator workflows, and Claude/GPT experiments, <a href="https://fluxtoken.ai">FluxToken</a> provides a multi-model API gateway with unified keys, balance management, usage logs, and routing across mainstream model providers. Set <code>REDBOT_BASE_URL=https://fluxtoken.ai/v1</code>, paste your FluxToken API key, and Redbot can run the same templates through your gateway.
+Redbot works with any OpenAI-compatible endpoint. If you want a ready-to-use model gateway for production testing, document workflows, and Claude/GPT experiments, <a href="https://fluxtoken.ai">FluxToken</a> provides a multi-model API gateway with unified keys, balance management, usage logs, and routing across mainstream model providers. Set <code>REDBOT_BASE_URL=https://fluxtoken.ai/v1</code>, paste your FluxToken API key, and Redbot can run the same templates through your gateway.
 <br><br>
 Redbot stays provider-neutral: OpenAI, OpenRouter, local servers, self-hosted New API, and other compatible relays all work the same way.
 </td>
@@ -38,12 +38,12 @@ Redbot stays provider-neutral: OpenAI, OpenRouter, local servers, self-hosted Ne
 
 Redbot turns repeatable knowledge work into transparent task runs. Instead of opening a blank chat every time, you start from templates such as research briefs, short-video scripts, content tables, weekly reports, and GitHub README drafts.
 
-- **Template-first execution**: built-in workflows for creators, operators, and developers.
+- **Template-first execution**: built-in workflows for research, reports, structured notes, and project documentation.
 - **OpenAI-compatible by default**: use OpenAI, FluxToken, OpenRouter, self-hosted gateways, or local model servers.
 - **Local artifacts and traces**: every run writes the final output and a JSON trace you can inspect.
 - **Chat-platform ready**: local endpoints for Feishu, Enterprise WeChat, WeChat official account callbacks, and generic bridges.
 - **Memory and knowledge base**: SQLite-backed scoped memory plus keyword search over local `.md` and `.txt` files.
-- **MIT open source**: easy to fork, teach, remix, and use in vibecoding videos.
+- **MIT open source**: easy to fork, audit, extend, and deploy.
 
 ## Quick Start
 
@@ -52,7 +52,7 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -e .
 redbot templates
-redbot run short-video-script --topic "Claude vs GPT" --audience "Douyin tech audience" --context "60-second model comparison" --demo
+redbot run research-brief --topic "Claude vs GPT" --audience "engineering team" --context "Compare model strengths for internal tool usage" --demo
 ```
 
 Start the local desktop-style console:
@@ -94,7 +94,7 @@ $env:REDBOT_MODEL="gpt-4o-mini"
 Then run:
 
 ```bash
-redbot run research-brief --topic "Open-source AI agent trends" --audience "tech creator" --context "Find GitHub projects worth remixing"
+redbot run research-brief --topic "Open-source AI agent trends" --audience "engineering team" --context "Summarize practical adoption risks and next actions"
 ```
 
 More details: [OpenAI-compatible setup](docs/openai-compatible.md) and [FluxToken setup](docs/fluxtoken.md).
@@ -104,7 +104,7 @@ More details: [OpenAI-compatible setup](docs/openai-compatible.md) and [FluxToke
 | Template | Output |
 |---|---|
 | `research-brief` | Structured topic research with angles, risks, and next actions |
-| `short-video-script` | Douyin/Xiaohongshu-style short-video script with a strong hook |
+| `short-video-script` | Short-form communication script with a clear hook and structure |
 | `content-table` | Converts messy notes into a publishable table |
 | `weekly-report` | Turns progress notes into a clear team update |
 | `github-readme` | Drafts a GitHub README for a productized open-source project |
@@ -121,8 +121,8 @@ Useful local commands:
 
 ```text
 /templates
-/run short-video-script Claude and GPT model comparison
-/remember style=make output suitable for Douyin
+/run research-brief Claude and GPT model comparison
+/remember style=concise technical summary
 /memory
 /kb add Feishu setup notes
 /kb search Feishu
@@ -153,11 +153,11 @@ Search from the console or any channel:
 /kb search model gateway
 ```
 
-The first version is intentionally small and dependency-free: SQLite storage plus lightweight keyword search. It is designed to be readable enough for tutorials and easy enough for the community to extend.
+The first version is intentionally small and dependency-free: SQLite storage plus lightweight keyword search. It is designed to be readable, auditable, and easy for teams to extend.
 
 ## Roadmap
 
-- More creator templates for Douyin, Xiaohongshu, Bilibili, and WeChat Official Accounts.
+- More workflow templates for research, team updates, support notes, and project documentation.
 - Richer web console for choosing templates and viewing traces.
 - Built-in web research tool.
 - File ingestion for PDF, DOCX, and meeting notes.
@@ -166,13 +166,13 @@ The first version is intentionally small and dependency-free: SQLite storage plu
 
 ## How It Differs From nanobot
 
-[nanobot](https://github.com/HKUDS/nanobot) is a broad personal AI agent framework with WebUI, channels, tools, memory, MCP, automation, and deployment. Redbot is a focused product fork-in-spirit for lightweight creator and office execution:
+[nanobot](https://github.com/HKUDS/nanobot) is a broad personal AI agent framework with WebUI, channels, tools, memory, MCP, automation, and deployment. Redbot is a focused product fork-in-spirit for lightweight knowledge-work execution:
 
 - narrower first-run experience;
-- Chinese creator and operator templates;
+- practical research, documentation, and operations templates;
 - local artifacts and traces as the main product surface;
 - simple OpenAI-compatible configuration;
-- a smaller codebase designed for vibecoding videos and community remixing.
+- a smaller codebase designed for inspection, extension, and self-hosting.
 
 ## Development
 

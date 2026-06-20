@@ -2,7 +2,7 @@
 
 # Redbot
 
-### クリエイター、オペレーター、小規模チーム向けのローカルファースト AI 実行アシスタント
+### 反復的なナレッジワーク向けのローカルファースト AI 実行アシスタント
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
@@ -22,7 +22,7 @@
 
 Redbot は特定のプロバイダーに依存しません。OpenAI-compatible endpoint であれば、OpenAI、FluxToken、OpenRouter、セルフホストした New API、ローカルモデルサーバーなどを利用できます。
 
-[FluxToken](https://fluxtoken.ai) は、Claude / GPT などの主流モデルを統合して扱えるマルチモデル API ゲートウェイです。統一 API Key、残高管理、利用ログ、ルーティングを備えており、Redbot のデモやクリエイター向けワークフローに使いやすい選択肢です。
+[FluxToken](https://fluxtoken.ai) は、Claude / GPT などの主流モデルを統合して扱えるマルチモデル API ゲートウェイです。統一 API Key、残高管理、利用ログ、ルーティングを備えており、Redbot のテストやドキュメントワークフローに使いやすい選択肢です。
 
 ```powershell
 $env:REDBOT_API_KEY="ft-your-key"
@@ -38,13 +38,13 @@ Redbot turns repeatable knowledge work into transparent task runs. It starts fro
 
 ## Features
 
-- Template-first execution for creator, office, and developer workflows.
+- Template-first execution for research, reports, structured notes, and project documentation.
 - OpenAI-compatible model configuration.
 - Local artifacts and JSON traces for every run.
 - Local browser console and HTTP server.
 - Feishu, Enterprise WeChat, WeChat official account, and generic webhook adapters.
 - SQLite memory and a lightweight local knowledge base.
-- MIT license for forks, tutorials, and community remixing.
+- MIT license for auditing, extension, and self-hosting.
 
 ## Quick Start
 
@@ -53,7 +53,7 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -e .
 redbot templates
-redbot run short-video-script --topic "Claude vs GPT" --audience "Douyin tech audience" --context "60-second comparison" --demo
+redbot run research-brief --topic "Claude vs GPT" --audience "engineering team" --context "Compare model strengths for internal tool usage" --demo
 ```
 
 Start the local console:

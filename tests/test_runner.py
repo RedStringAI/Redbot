@@ -18,8 +18,8 @@ class RunnerTests(unittest.TestCase):
             result = runner.run(
                 template=get_template("research-brief"),
                 topic="开源 AI Agent 工具趋势",
-                audience="准备做抖音科技号的人",
-                context="关注 GitHub 开源、二创空间、短视频传播点。",
+                audience="工程团队",
+                context="关注 GitHub 开源项目、落地风险和下一步行动。",
             )
 
             self.assertTrue(result.task_id.startswith("redbot-"))
@@ -38,13 +38,13 @@ class RunnerTests(unittest.TestCase):
 
             result = runner.run(
                 template=get_template("github-readme"),
-                topic="Redbot: Creator Agent!",
+                topic="Redbot: Workflow Agent!",
                 audience="GitHub visitors",
                 context="Make it attractive.",
             )
 
             self.assertEqual(result.artifact_path.parent, Path(tmp) / "artifacts")
-            self.assertIn("redbot-creator-agent", result.artifact_path.name)
+            self.assertIn("redbot-workflow-agent", result.artifact_path.name)
 
     def test_runner_uses_ascii_fallback_for_chinese_slug(self):
         with TemporaryDirectory() as tmp:

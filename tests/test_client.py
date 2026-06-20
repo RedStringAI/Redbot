@@ -60,7 +60,7 @@ class ClientTests(unittest.TestCase):
                 llm=llm,
                 workspace=tmp,
             )
-            client.handle_text("local", "room", "user", "/remember style=输出要适合抖音")
+            client.handle_text("local", "room", "user", "/remember style=输出要简洁、技术口径清晰")
             client.handle_text("local", "room", "user", "/kb add 模型资料\nClaude 适合长文推理。")
 
             response = client.handle_text(
@@ -71,7 +71,7 @@ class ClientTests(unittest.TestCase):
             )
 
             self.assertIn("Artifact", response.text)
-            self.assertIn("输出要适合抖音", llm.prompts[0])
+            self.assertIn("输出要简洁、技术口径清晰", llm.prompts[0])
             self.assertIn("Claude 适合长文推理", llm.prompts[0])
 
 

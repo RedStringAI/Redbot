@@ -2,7 +2,7 @@
 
 # Redbot
 
-### Ein lokal ausgerichteter KI-Ausführungsassistent für Creator, Operatoren und kleine Teams
+### Ein lokal ausgerichteter KI-Ausführungsassistent für wiederkehrende Wissensarbeit
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
@@ -22,7 +22,7 @@
 
 Redbot ist provider-neutral. Jede OpenAI-compatible endpoint kann genutzt werden: OpenAI, FluxToken, OpenRouter, ein selbst gehostetes New API, lokale Modellserver oder andere kompatible Relays.
 
-[FluxToken](https://fluxtoken.ai) ist ein Multi-Modell-API-Gateway für Mainstream-Modelle wie Claude und GPT. Es bietet einheitliche API Keys, Guthabenverwaltung, Nutzungslogs und Routing und eignet sich gut für Redbot-Demos und Creator-Workflows.
+[FluxToken](https://fluxtoken.ai) ist ein Multi-Modell-API-Gateway für Mainstream-Modelle wie Claude und GPT. Es bietet einheitliche API Keys, Guthabenverwaltung, Nutzungslogs und Routing und eignet sich gut für Redbot-Tests und Dokumentations-Workflows.
 
 ```powershell
 $env:REDBOT_API_KEY="ft-your-key"
@@ -38,13 +38,13 @@ Redbot turns repeatable knowledge work into transparent task runs. Instead of st
 
 ## Features
 
-- Template-first execution for creator, office, and developer workflows.
+- Template-first execution for research, reports, structured notes, and project documentation.
 - OpenAI-compatible model configuration.
 - Local artifacts and JSON traces for every run.
 - Local browser console and HTTP server.
 - Feishu, Enterprise WeChat, WeChat official account, and generic webhook adapters.
 - SQLite memory and a lightweight local knowledge base.
-- MIT license for forks, tutorials, and community remixing.
+- MIT license for auditing, extension, and self-hosting.
 
 ## Quick Start
 
@@ -53,7 +53,7 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -e .
 redbot templates
-redbot run short-video-script --topic "Claude vs GPT" --audience "Douyin tech audience" --context "60-second comparison" --demo
+redbot run research-brief --topic "Claude vs GPT" --audience "engineering team" --context "Compare model strengths for internal tool usage" --demo
 ```
 
 Start the local console:

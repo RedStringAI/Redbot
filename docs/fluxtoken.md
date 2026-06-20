@@ -1,6 +1,6 @@
 # FluxToken Setup
 
-Redbot is provider-neutral and works with any OpenAI-compatible endpoint. FluxToken is one recommended gateway when you want a ready model relay for demos, content workflows, and Claude/GPT experiments.
+Redbot is provider-neutral and works with any OpenAI-compatible endpoint. FluxToken is one recommended gateway when you want a ready model relay for production testing, document workflows, and Claude/GPT experiments.
 
 ## What FluxToken Provides
 
@@ -46,8 +46,8 @@ export REDBOT_MODEL=gpt-4o-mini
 ```bash
 redbot run research-brief \
   --topic "Open-source AI agent projects" \
-  --audience "tech creator" \
-  --context "Find practical GitHub projects that can be remixed"
+  --audience "engineering team" \
+  --context "Summarize practical adoption risks and next actions"
 ```
 
 For local console mode:
@@ -84,6 +84,6 @@ http://127.0.0.1:11434/v1
 ## Notes For Public Demos
 
 - Do not show real API keys in screenshots or videos.
-- Use `--demo` when recording setup tutorials without a model key.
+- Use `--demo` when testing setup flows without a model key.
 - If a model call fails, check the gateway balance, key permissions, selected model name, and usage logs first.
-- Keep Redbot open-source and provider-neutral in your content; present FluxToken as one convenient backend option.
+- Keep Redbot provider-neutral in public documentation; present FluxToken as one convenient backend option.
