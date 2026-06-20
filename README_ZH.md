@@ -21,7 +21,7 @@
 <details open>
 <summary>推荐的 OpenAI-compatible 模型中转站</summary>
 
-[![FluxToken - OpenAI-compatible 多模型网关](assets/fluxtoken-banner.svg)](https://fluxtoken.ai)
+[![FluxToken - OpenAI-compatible 多模型网关](assets/fluxtoken-banner.png)](https://fluxtoken.ai)
 
 <table>
 <tr>

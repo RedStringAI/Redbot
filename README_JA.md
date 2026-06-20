@@ -20,7 +20,7 @@
 <details open>
 <summary>Recommended OpenAI-compatible gateway</summary>
 
-[![FluxToken - OpenAI-compatible multi-model gateway](assets/fluxtoken-banner.svg)](https://fluxtoken.ai)
+[![FluxToken - OpenAI-compatible multi-model gateway](assets/fluxtoken-banner.png)](https://fluxtoken.ai)
 
 Redbot は特定のプロバイダーに依存しません。OpenAI-compatible endpoint であれば、OpenAI、FluxToken、OpenRouter、セルフホストした New API、ローカルモデルサーバーなどを利用できます。
 

@@ -20,7 +20,7 @@
 <details open>
 <summary>Recommended OpenAI-compatible gateway</summary>
 
-[![FluxToken - OpenAI-compatible multi-model gateway](assets/fluxtoken-banner.svg)](https://fluxtoken.ai)
+[![FluxToken - OpenAI-compatible multi-model gateway](assets/fluxtoken-banner.png)](https://fluxtoken.ai)
 
 Redbot ist provider-neutral. Jede OpenAI-compatible endpoint kann genutzt werden: OpenAI, FluxToken, OpenRouter, ein selbst gehostetes New API, lokale Modellserver oder andere kompatible Relays.
 
