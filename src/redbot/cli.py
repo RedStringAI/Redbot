@@ -5,6 +5,7 @@ from pathlib import Path
 
 from redbot.llm import DemoLLMClient, LLMConfig, OpenAICompatibleClient
 from redbot.runner import RedbotRunner
+from redbot.server import serve
 from redbot.templates import get_template, list_templates
 
 
@@ -29,6 +30,17 @@ def build_parser() -> argparse.ArgumentParser:
         default="redbot_workspace",
         help="Output workspace directory.",
     )
+
+    serve_parser = subparsers.add_parser("serve", help="Start the local Redbot client server.")
+    serve_parser.add_argument("--host", default="127.0.0.1", help="Bind host.")
+    serve_parser.add_argument("--port", type=int, default=8765, help="Bind port.")
+    serve_parser.add_argument(
+        "--workspace",
+        "-w",
+        default="redbot_workspace",
+        help="Workspace for database, artifacts, and traces.",
+    )
+    serve_parser.add_argument("--demo", action="store_true", help="Run without a model API key.")
     return parser
 
 
@@ -39,6 +51,9 @@ def main(argv: list[str] | None = None) -> int:
         return _templates_command()
     if args.command == "run":
         return _run_command(args)
+    if args.command == "serve":
+        serve(host=args.host, port=args.port, workspace=args.workspace, demo=args.demo)
+        return 0
     parser.error(f"Unknown command: {args.command}")
     return 2
 
