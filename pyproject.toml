@@ -45,6 +45,7 @@ include = [
   "src/redbot",
   "tests",
   "README.md",
+  "README_*.md",
   "LICENSE",
   "NOTICE.md",
   "docs"
