@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/redbot-avatar.png" alt="Redbot avatar" width="96">
+
 # Redbot
 
 ### Ein lokal ausgerichteter KI-Ausführungsassistent für wiederkehrende Wissensarbeit

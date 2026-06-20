@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/redbot-avatar.png" alt="Redbot avatar" width="96">
+
 # Redbot
 
 ### A local-first AI execution assistant for repeatable knowledge work

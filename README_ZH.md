@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/redbot-avatar.png" alt="Redbot avatar" width="96">
+
 # Redbot
 
 ### 面向可重复知识工作的本地优先 AI 执行助理
