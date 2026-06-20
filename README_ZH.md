@@ -21,11 +21,13 @@
 <details open>
 <summary>推荐的 OpenAI-compatible 模型中转站</summary>
 
+[![FluxToken - OpenAI-compatible 多模型网关](assets/fluxtoken-banner.svg)](https://fluxtoken.ai)
+
 <table>
 <tr>
 <td width="180"><strong>FluxToken</strong><br><a href="https://fluxtoken.ai">fluxtoken.ai</a></td>
 <td>
-Redbot 不绑定任何一家模型服务，只要是 OpenAI-compatible endpoint 都能接。如果你想快速做演示、跑创作者工作流，或者在 Claude / GPT 等主流模型之间切换，可以使用 <a href="https://fluxtoken.ai">FluxToken</a>。FluxToken 基于多模型 API 网关能力，提供统一 API Key、余额管理、使用日志和渠道路由。
+Redbot 不绑定任何一家模型服务，只要是 OpenAI-compatible endpoint 都能接。如果你想做生产测试、文档工作流，或者在 Claude / GPT 等主流模型之间切换，可以使用 <a href="https://fluxtoken.ai">FluxToken</a>。FluxToken 基于多模型 API 网关能力，提供统一 API Key、余额管理、使用日志和渠道路由。
 <br><br>
 配置方式很简单：把 <code>REDBOT_BASE_URL</code> 设为 <code>https://fluxtoken.ai/v1</code>，再填入你的 FluxToken API Key 即可。Redbot 仍然保持开源和中立，也可以接 OpenAI、OpenRouter、自建 New API、本地模型服务或任何兼容中转站。
 </td>

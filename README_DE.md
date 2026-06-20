@@ -20,6 +20,8 @@
 <details open>
 <summary>Recommended OpenAI-compatible gateway</summary>
 
+[![FluxToken - OpenAI-compatible multi-model gateway](assets/fluxtoken-banner.svg)](https://fluxtoken.ai)
+
 Redbot ist provider-neutral. Jede OpenAI-compatible endpoint kann genutzt werden: OpenAI, FluxToken, OpenRouter, ein selbst gehostetes New API, lokale Modellserver oder andere kompatible Relays.
 
 [FluxToken](https://fluxtoken.ai) ist ein Multi-Modell-API-Gateway für Mainstream-Modelle wie Claude und GPT. Es bietet einheitliche API Keys, Guthabenverwaltung, Nutzungslogs und Routing und eignet sich gut für Redbot-Tests und Dokumentations-Workflows.

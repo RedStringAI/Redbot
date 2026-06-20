@@ -21,6 +21,8 @@ English | [中文](README_ZH.md) | [日本語](README_JA.md) | [Deutsch](README_
 <details open>
 <summary>Recommended OpenAI-compatible gateway</summary>
 
+[![FluxToken - OpenAI-compatible multi-model gateway](assets/fluxtoken-banner.svg)](https://fluxtoken.ai)
+
 <table>
 <tr>
 <td width="180"><strong>FluxToken</strong><br><a href="https://fluxtoken.ai">fluxtoken.ai</a></td>
