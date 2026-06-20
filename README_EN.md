@@ -141,7 +141,7 @@ Webhook endpoints:
 | WeChat official account | `/webhook/wechat` |
 | Generic bot bridge | `/webhook/generic` |
 
-See [Local client](docs/local-client.md) and [Channel setup](docs/channels.md).
+See [Local client](docs/local-client.md), [client screenshots and operations](docs/redbot-client-guide.md), and [Channel setup](docs/channels.md).
 
 ## Knowledge Base
 

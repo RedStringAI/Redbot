@@ -140,7 +140,7 @@ Webhook 入口：
 | 微信公众号 | `/webhook/wechat` |
 | 通用机器人桥 | `/webhook/generic` |
 
-查看：[本地客户端](docs/local-client.md) 和 [渠道接入](docs/channels.md)。
+查看：[本地客户端](docs/local-client.md)、[截图与客户端操作](docs/redbot-client-guide.md) 和 [渠道接入](docs/channels.md)。
 
 ## 知识库
 

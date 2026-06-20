@@ -87,6 +87,7 @@ http://127.0.0.1:8765
 - [OpenAI-compatible setup](docs/openai-compatible.md)
 - [FluxToken setup](docs/fluxtoken.md)
 - [Local client](docs/local-client.md)
+- [Client screenshots and operations](docs/redbot-client-guide.md)
 - [Channel setup](docs/channels.md)
 - [Product plan](docs/product.md)
 
