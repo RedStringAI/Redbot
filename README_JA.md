@@ -11,7 +11,7 @@
 
 ### Official Repository: **[github.com/RedStringAI/Redbot](https://github.com/RedStringAI/Redbot)**
 
-[English](README.md) | [中文](README_ZH.md) | 日本語 | [Deutsch](README_DE.md) | [FluxToken](docs/fluxtoken.md)
+[English](README_EN.md) | [中文](README.md) | 日本語 | [Deutsch](README_DE.md) | [FluxToken](docs/fluxtoken.md)
 
 </div>
 

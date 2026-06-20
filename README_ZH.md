@@ -12,7 +12,7 @@
 
 ### 官方仓库：**[github.com/RedStringAI/Redbot](https://github.com/RedStringAI/Redbot)**
 
-[English](README.md) | 中文 | [日本語](README_JA.md) | [Deutsch](README_DE.md) | [FluxToken](docs/fluxtoken.md)
+[English](README_EN.md) | 中文 | [日本語](README_JA.md) | [Deutsch](README_DE.md) | [FluxToken](docs/fluxtoken.md)
 
 </div>
 
