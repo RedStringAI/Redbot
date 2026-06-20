@@ -21,6 +21,18 @@ redbot templates
 redbot run short-video-script --topic "Claude vs GPT" --audience "抖音科技爱好者" --context "做一个 60 秒模型对比视频" --demo
 ```
 
+Start the local client:
+
+```bash
+redbot serve --demo --port 8765
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8765
+```
+
 Use a real model through any OpenAI-compatible endpoint:
 
 ```bash
@@ -56,12 +68,15 @@ Redbot is meant to become a practical personal execution assistant:
 1. Creator workflows: topic research, script writing, cover-copy ideas, publishing checklists.
 2. Office workflows: weekly reports, meeting summaries, project update drafts.
 3. Developer workflows: README, changelog, issue triage, release notes.
-4. Transparent automation: artifacts and traces are local files that can be inspected and shared.
+4. Local client workflows: Feishu group entry, Enterprise WeChat group entry, WeChat-compatible webhook entry, memory, and knowledge base.
+5. Transparent automation: artifacts and traces are local files that can be inspected and shared.
 
 More detail:
 
 - [Product plan](docs/product.md)
 - [OpenAI-compatible setup](docs/openai-compatible.md)
+- [Local client](docs/local-client.md)
+- [Channel setup](docs/channels.md)
 - [Douyin series ideas](docs/douyin-series.md)
 
 ## Development
