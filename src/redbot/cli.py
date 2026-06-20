@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from redbot.desktop import DesktopLaunchConfig, launch_desktop
 from redbot.llm import DemoLLMClient, LLMConfig, OpenAICompatibleClient
 from redbot.knowledge import import_path
 from redbot.runner import RedbotRunner
@@ -44,6 +45,22 @@ def build_parser() -> argparse.ArgumentParser:
     )
     serve_parser.add_argument("--demo", action="store_true", help="Run without a model API key.")
 
+    desktop_parser = subparsers.add_parser("desktop", help="Start the local desktop client.")
+    desktop_parser.add_argument("--host", default="127.0.0.1", help="Bind host.")
+    desktop_parser.add_argument("--port", type=int, default=8765, help="Bind port.")
+    desktop_parser.add_argument(
+        "--workspace",
+        "-w",
+        default="redbot_workspace",
+        help="Workspace for database, artifacts, traces, and desktop status.",
+    )
+    desktop_parser.add_argument("--demo", action="store_true", help="Run without a model API key.")
+    desktop_parser.add_argument(
+        "--no-browser",
+        action="store_true",
+        help="Do not open the browser automatically.",
+    )
+
     kb_parser = subparsers.add_parser("kb", help="Knowledge base commands.")
     kb_subparsers = kb_parser.add_subparsers(dest="kb_command", required=True)
     kb_import = kb_subparsers.add_parser("import", help="Import .md/.txt files into the local KB.")
@@ -66,6 +83,18 @@ def main(argv: list[str] | None = None) -> int:
         return _run_command(args)
     if args.command == "serve":
         serve(host=args.host, port=args.port, workspace=args.workspace, demo=args.demo)
+        return 0
+    if args.command == "desktop":
+        config = DesktopLaunchConfig(
+            host=args.host,
+            port=args.port,
+            workspace=Path(args.workspace),
+            demo=args.demo,
+            open_browser=not args.no_browser,
+        )
+        status = launch_desktop(config)
+        print(f"Redbot desktop: {status.local_url}")
+        print(f"Status file: {status.status_file}")
         return 0
     if args.command == "kb":
         return _kb_command(args)

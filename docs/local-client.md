@@ -4,6 +4,16 @@ Redbot can run as a local client server. It keeps your artifacts, traces, memory
 
 ## Start
 
+Recommended local desktop-style launcher:
+
+```bash
+redbot desktop --demo --port 8765
+```
+
+It starts the local server, writes `redbot_workspace/desktop-status.json`, and opens the browser console.
+
+Server-only mode:
+
 Demo mode, no model API key:
 
 ```bash
@@ -103,3 +113,11 @@ redbot_workspace/
 ```
 
 Use `--workspace` to choose another folder.
+
+The desktop launcher also writes:
+
+```text
+redbot_workspace/desktop-status.json
+```
+
+That file contains the local console URL and webhook endpoint URLs you can copy into Feishu, Enterprise WeChat, or a WeChat bot bridge.

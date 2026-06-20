@@ -21,10 +21,10 @@ redbot templates
 redbot run short-video-script --topic "Claude vs GPT" --audience "抖音科技爱好者" --context "做一个 60 秒模型对比视频" --demo
 ```
 
-Start the local client:
+Start the local desktop client:
 
 ```bash
-redbot serve --demo --port 8765
+redbot desktop --demo --port 8765
 ```
 
 Then open:
