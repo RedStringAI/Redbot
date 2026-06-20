@@ -4,8 +4,10 @@ import argparse
 from pathlib import Path
 
 from redbot.llm import DemoLLMClient, LLMConfig, OpenAICompatibleClient
+from redbot.knowledge import import_path
 from redbot.runner import RedbotRunner
 from redbot.server import serve
+from redbot.store import RedbotStore
 from redbot.templates import get_template, list_templates
 
 
@@ -41,6 +43,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="Workspace for database, artifacts, and traces.",
     )
     serve_parser.add_argument("--demo", action="store_true", help="Run without a model API key.")
+
+    kb_parser = subparsers.add_parser("kb", help="Knowledge base commands.")
+    kb_subparsers = kb_parser.add_subparsers(dest="kb_command", required=True)
+    kb_import = kb_subparsers.add_parser("import", help="Import .md/.txt files into the local KB.")
+    kb_import.add_argument("path", help="File or directory to import.")
+    kb_import.add_argument(
+        "--workspace",
+        "-w",
+        default="redbot_workspace",
+        help="Workspace containing redbot.db.",
+    )
     return parser
 
 
@@ -54,6 +67,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "serve":
         serve(host=args.host, port=args.port, workspace=args.workspace, demo=args.demo)
         return 0
+    if args.command == "kb":
+        return _kb_command(args)
     parser.error(f"Unknown command: {args.command}")
     return 2
 
@@ -76,3 +91,13 @@ def _run_command(args: argparse.Namespace) -> int:
     print(f"Artifact: {result.artifact_path}")
     print(f"Trace: {result.trace_path}")
     return 0
+
+
+def _kb_command(args: argparse.Namespace) -> int:
+    if args.kb_command == "import":
+        workspace = Path(args.workspace)
+        store = RedbotStore(workspace / "redbot.db")
+        count = import_path(store, args.path)
+        print(f"Imported {count} knowledge document(s).")
+        return 0
+    raise ValueError(f"Unknown kb command: {args.kb_command}")

@@ -45,6 +45,18 @@ curl -X POST http://127.0.0.1:8765/api/chat \
 /kb search 飞书
 ```
 
+Import local `.md` and `.txt` files:
+
+```bash
+redbot kb import ./docs --workspace redbot_workspace
+```
+
+Then ask from the local console or any channel:
+
+```text
+/kb search 飞书
+```
+
 ## Webhook Endpoints
 
 | Platform | Endpoint | Notes |

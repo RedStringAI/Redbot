@@ -33,6 +33,12 @@ Then open:
 http://127.0.0.1:8765
 ```
 
+Import local notes into the knowledge base:
+
+```bash
+redbot kb import ./docs
+```
+
 Use a real model through any OpenAI-compatible endpoint:
 
 ```bash
