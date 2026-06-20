@@ -15,6 +15,8 @@ Redbot is a focused personal AI execution assistant. The first release avoids a 
 3. **Content Table**: turn notes into a structured comparison table.
 4. **Weekly Report**: turn progress notes into a clean team update.
 5. **GitHub README**: turn a product idea into an attractive open-source README.
+6. **Local Client**: run Redbot on your own machine with a browser console and webhook channels.
+7. **Memory + Knowledge Base**: remember per-user preferences and retrieve local knowledge before running tasks.
 
 ## Differentiation
 
@@ -36,6 +38,7 @@ Compared with closed AI writing tools, Redbot is:
 
 - Template marketplace directory.
 - Web UI for choosing templates and viewing traces.
+- Richer desktop shell for the local client.
 - Built-in web research tool.
 - File ingestion for PDF, DOCX, and meeting notes.
 - Scheduled recurring tasks.
