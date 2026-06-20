@@ -56,6 +56,15 @@ curl -X POST http://127.0.0.1:8765/api/chat \
 
 For local testing, use a tunnel such as Cloudflare Tunnel, ngrok, or a server reverse proxy so Feishu/WeChat can reach your local webhook URL.
 
+Optional outbound settings:
+
+```bash
+REDBOT_FEISHU_ACCESS_TOKEN=tenant-or-bot-access-token
+REDBOT_WECOM_WEBHOOK_URL=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
+```
+
+If these are set, Redbot will try to send replies back to Feishu or Enterprise WeChat after handling the incoming message. If they are not set, Redbot still returns the reply in the local HTTP response for testing and bridge integrations.
+
 ## Memory
 
 Memory is scoped by:

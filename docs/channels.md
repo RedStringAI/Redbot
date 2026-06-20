@@ -25,6 +25,12 @@ https://your-domain/webhook/feishu
 
 Redbot handles `url_verification` by returning the challenge. For text events, it reads the message text and returns a `redbot_reply` field for local testing. In production, you can extend the adapter to call Feishu's reply/send-message API.
 
+Set this if you want Redbot to send replies through Feishu's message API:
+
+```bash
+REDBOT_FEISHU_ACCESS_TOKEN=tenant-or-bot-access-token
+```
+
 ## Enterprise WeChat / 企业微信
 
 There are two common routes:
@@ -49,6 +55,12 @@ It returns a markdown response payload:
   "msgtype": "markdown",
   "markdown": { "content": "..." }
 }
+```
+
+Set this if you want Redbot to push the reply into an Enterprise WeChat group robot:
+
+```bash
+REDBOT_WECOM_WEBHOOK_URL=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
 ```
 
 ## WeChat / 微信

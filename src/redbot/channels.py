@@ -2,16 +2,54 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import time
+import urllib.request
 import xml.etree.ElementTree as ET
 from html import escape
+from typing import Protocol
 
 from redbot.client import LocalRedbotClient
 
 
+class ChannelSender(Protocol):
+    def send_text(self, conversation_id: str, text: str) -> None:
+        """Send text back to the source platform."""
+
+
+class FeishuSender:
+    def __init__(self, access_token: str | None = None):
+        self.access_token = access_token or os.getenv("REDBOT_FEISHU_ACCESS_TOKEN", "")
+
+    def send_text(self, conversation_id: str, text: str) -> None:
+        if not self.access_token:
+            return
+        _post_json(
+            "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=chat_id",
+            {
+                "receive_id": conversation_id,
+                "msg_type": "text",
+                "content": json.dumps({"text": text}, ensure_ascii=False),
+            },
+            headers={"Authorization": f"Bearer {self.access_token}"},
+        )
+
+
+class WeComRobotSender:
+    def __init__(self, webhook_url: str | None = None):
+        self.webhook_url = webhook_url or os.getenv("REDBOT_WECOM_WEBHOOK_URL", "")
+
+    def send_text(self, conversation_id: str, text: str) -> None:
+        del conversation_id
+        if not self.webhook_url:
+            return
+        _post_json(self.webhook_url, {"msgtype": "markdown", "markdown": {"content": text}})
+
+
 class FeishuAdapter:
-    def __init__(self, client: LocalRedbotClient | None):
+    def __init__(self, client: LocalRedbotClient | None, sender: ChannelSender | None = None):
         self.client = client
+        self.sender = sender
 
     def handle_json(self, payload: dict) -> dict:
         if payload.get("type") == "url_verification":
@@ -24,12 +62,15 @@ class FeishuAdapter:
         sender = event.get("sender", {}).get("sender_id", {}).get("open_id", "unknown")
         chat_id = message.get("chat_id", "direct")
         reply = self.client.handle_text("feishu", chat_id, sender, content)
+        if self.sender is not None:
+            self.sender.send_text(chat_id, reply.text)
         return {"code": 0, "redbot_reply": reply.text}
 
 
 class WeComAdapter:
-    def __init__(self, client: LocalRedbotClient | None):
+    def __init__(self, client: LocalRedbotClient | None, sender: ChannelSender | None = None):
         self.client = client
+        self.sender = sender
 
     def handle_json(self, payload: dict) -> dict:
         text = payload.get("text", {}).get("content", "")
@@ -38,6 +79,8 @@ class WeComAdapter:
         reply_text = ""
         if self.client is not None:
             reply_text = self.client.handle_text("wecom", chat_id, user_id, text).text
+        if self.sender is not None:
+            self.sender.send_text(chat_id, reply_text)
         return {"msgtype": "markdown", "markdown": {"content": reply_text}}
 
 
@@ -77,3 +120,15 @@ class WeChatAdapter:
 def _xml_text(root: ET.Element, tag: str) -> str:
     node = root.find(tag)
     return node.text if node is not None and node.text is not None else ""
+
+
+def _post_json(url: str, payload: dict, headers: dict[str, str] | None = None) -> None:
+    data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    request = urllib.request.Request(
+        url,
+        data=data,
+        method="POST",
+        headers={"Content-Type": "application/json", **(headers or {})},
+    )
+    with urllib.request.urlopen(request, timeout=15) as response:
+        response.read()

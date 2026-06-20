@@ -26,7 +26,8 @@ class ChannelTests(unittest.TestCase):
 
     def test_feishu_message_event_uses_unified_client(self):
         with TemporaryDirectory() as tmp:
-            adapter = FeishuAdapter(client=make_client(tmp))
+            sender = RecordingSender()
+            adapter = FeishuAdapter(client=make_client(tmp), sender=sender)
 
             response = adapter.handle_json(
                 {
@@ -43,10 +44,13 @@ class ChannelTests(unittest.TestCase):
 
             self.assertEqual(response["code"], 0)
             self.assertIn("research-brief", response["redbot_reply"])
+            self.assertEqual(sender.sent[0]["conversation_id"], "oc-chat")
+            self.assertIn("research-brief", sender.sent[0]["text"])
 
     def test_wecom_json_message_returns_markdown_payload(self):
         with TemporaryDirectory() as tmp:
-            adapter = WeComAdapter(client=make_client(tmp))
+            sender = RecordingSender()
+            adapter = WeComAdapter(client=make_client(tmp), sender=sender)
 
             response = adapter.handle_json(
                 {
@@ -58,6 +62,8 @@ class ChannelTests(unittest.TestCase):
 
             self.assertEqual(response["msgtype"], "markdown")
             self.assertIn("research-brief", response["markdown"]["content"])
+            self.assertEqual(sender.sent[0]["conversation_id"], "group-1")
+            self.assertIn("research-brief", sender.sent[0]["text"])
 
     def test_wechat_get_verification_returns_echostr_when_signature_matches(self):
         adapter = WeChatAdapter(client=None, token="redbot-token")
@@ -85,3 +91,11 @@ class ChannelTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RecordingSender:
+    def __init__(self):
+        self.sent = []
+
+    def send_text(self, conversation_id: str, text: str) -> None:
+        self.sent.append({"conversation_id": conversation_id, "text": text})

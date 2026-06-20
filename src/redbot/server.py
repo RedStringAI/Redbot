@@ -5,7 +5,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from redbot.channels import FeishuAdapter, WeChatAdapter, WeComAdapter
+from redbot.channels import FeishuAdapter, FeishuSender, WeChatAdapter, WeComAdapter, WeComRobotSender
 from redbot.client import LocalRedbotClient
 from redbot.llm import DemoLLMClient, LLMConfig, OpenAICompatibleClient
 from redbot.store import RedbotStore
@@ -18,8 +18,8 @@ class RedbotLocalApp:
         store = RedbotStore(self.workspace / "redbot.db")
         llm = DemoLLMClient() if demo else OpenAICompatibleClient(LLMConfig.from_env())
         self.client = LocalRedbotClient(store=store, llm=llm, workspace=self.workspace)
-        self.feishu = FeishuAdapter(self.client)
-        self.wecom = WeComAdapter(self.client)
+        self.feishu = FeishuAdapter(self.client, sender=FeishuSender())
+        self.wecom = WeComAdapter(self.client, sender=WeComRobotSender())
         self.wechat = WeChatAdapter(self.client, token=_env_or_default("REDBOT_WECHAT_TOKEN", "redbot"))
 
     def handle_json_route(
